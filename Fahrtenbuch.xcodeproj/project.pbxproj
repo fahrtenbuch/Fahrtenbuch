@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		840D51DD164FDA3400A307B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840D51DC164FDA3400A307B4 /* UIKit.framework */; };
+		840D51DF164FDA3400A307B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840D51DE164FDA3400A307B4 /* Foundation.framework */; };
+		840D51E1164FDA3400A307B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840D51E0164FDA3400A307B4 /* CoreGraphics.framework */; };
+		840D51E7164FDA3400A307B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 840D51E5164FDA3400A307B4 /* InfoPlist.strings */; };
+		840D51E9164FDA3400A307B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D51E8164FDA3400A307B4 /* main.m */; };
+		840D51ED164FDA3400A307B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D51EC164FDA3400A307B4 /* AppDelegate.m */; };
+		840D51F0164FDA3400A307B4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840D51EE164FDA3400A307B4 /* MainStoryboard.storyboard */; };
+		840D51F3164FDA3400A307B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D51F2164FDA3400A307B4 /* ViewController.m */; };
+		840D51FB164FDA3400A307B4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840D51FA164FDA3400A307B4 /* SenTestingKit.framework */; };
+		840D51FC164FDA3400A307B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840D51DC164FDA3400A307B4 /* UIKit.framework */; };
+		840D51FD164FDA3400A307B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840D51DE164FDA3400A307B4 /* Foundation.framework */; };
+		840D5205164FDA3400A307B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 840D5203164FDA3400A307B4 /* InfoPlist.strings */; };
+		840D5208164FDA3400A307B4 /* FahrtenbuchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5207164FDA3400A307B4 /* FahrtenbuchTests.m */; };
+		840D5217164FE37600A307B4 /* AufzeichenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5216164FE37600A307B4 /* AufzeichenViewController.m */; };
+		840D521A164FE3B500A307B4 /* VerwaltenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5219164FE3B500A307B4 /* VerwaltenTableViewController.m */; };
+		840D521D164FE62200A307B4 /* VersendenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D521C164FE62200A307B4 /* VersendenTableViewController.m */; };
+		8421C3EF164FF82F0008E6A1 /* EinstellungenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421C3EE164FF82F0008E6A1 /* EinstellungenViewController.m */; };
+		84B8E13B1651802D00AC1FE7 /* CoreDataHelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8E13A1651802D00AC1FE7 /* CoreDataHelperClass.m */; };
+		84B8E144165187DA00AC1FE7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84B8E142165187DA00AC1FE7 /* Model.xcdatamodeld */; };
+		84B8E14616518B2A00AC1FE7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B8E14516518B2A00AC1FE7 /* CoreData.framework */; };
+		84B8E149165199BF00AC1FE7 /* Einstellungen.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8E148165199BF00AC1FE7 /* Einstellungen.m */; };
+		84E1B45E165531D500BAD4CD /* ViewController_dbService.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E1B45C165531D500BAD4CD /* ViewController_dbService.m */; };
+		84E1B461165532A800BAD4CD /* ViewController_Aufzeichnung.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E1B45F165532A800BAD4CD /* ViewController_Aufzeichnung.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		840D51FE164FDA3400A307B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 840D51CF164FDA3400A307B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 840D51D7164FDA3400A307B4;
+			remoteInfo = Fahrtenbuch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		840D51D8164FDA3400A307B4 /* Fahrtenbuch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fahrtenbuch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		840D51DC164FDA3400A307B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		840D51DE164FDA3400A307B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		840D51E0164FDA3400A307B4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		840D51E4164FDA3400A307B4 /* Fahrtenbuch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fahrtenbuch-Info.plist"; sourceTree = "<group>"; };
+		840D51E6164FDA3400A307B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		840D51E8164FDA3400A307B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		840D51EA164FDA3400A307B4 /* Fahrtenbuch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fahrtenbuch-Prefix.pch"; sourceTree = "<group>"; };
+		840D51EB164FDA3400A307B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		840D51EC164FDA3400A307B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		840D51EF164FDA3400A307B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		840D51F1164FDA3400A307B4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		840D51F2164FDA3400A307B4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		840D51F9164FDA3400A307B4 /* FahrtenbuchTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FahrtenbuchTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		840D51FA164FDA3400A307B4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		840D5202164FDA3400A307B4 /* FahrtenbuchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FahrtenbuchTests-Info.plist"; sourceTree = "<group>"; };
+		840D5204164FDA3400A307B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		840D5206164FDA3400A307B4 /* FahrtenbuchTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FahrtenbuchTests.h; sourceTree = "<group>"; };
+		840D5207164FDA3400A307B4 /* FahrtenbuchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FahrtenbuchTests.m; sourceTree = "<group>"; };
+		840D5215164FE37600A307B4 /* AufzeichenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AufzeichenViewController.h; sourceTree = "<group>"; };
+		840D5216164FE37600A307B4 /* AufzeichenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AufzeichenViewController.m; sourceTree = "<group>"; };
+		840D5218164FE3B500A307B4 /* VerwaltenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerwaltenTableViewController.h; sourceTree = "<group>"; };
+		840D5219164FE3B500A307B4 /* VerwaltenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerwaltenTableViewController.m; sourceTree = "<group>"; };
+		840D521B164FE62200A307B4 /* VersendenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersendenTableViewController.h; sourceTree = "<group>"; };
+		840D521C164FE62200A307B4 /* VersendenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersendenTableViewController.m; sourceTree = "<group>"; };
+		8421C3ED164FF82F0008E6A1 /* EinstellungenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EinstellungenViewController.h; sourceTree = "<group>"; };
+		8421C3EE164FF82F0008E6A1 /* EinstellungenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EinstellungenViewController.m; sourceTree = "<group>"; };
+		84B8E1391651802D00AC1FE7 /* CoreDataHelperClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelperClass.h; sourceTree = "<group>"; };
+		84B8E13A1651802D00AC1FE7 /* CoreDataHelperClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelperClass.m; sourceTree = "<group>"; };
+		84B8E143165187DA00AC1FE7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		84B8E14516518B2A00AC1FE7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		84B8E147165199BF00AC1FE7 /* Einstellungen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Einstellungen.h; sourceTree = "<group>"; };
+		84B8E148165199BF00AC1FE7 /* Einstellungen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Einstellungen.m; sourceTree = "<group>"; };
+		84E1B45C165531D500BAD4CD /* ViewController_dbService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController_dbService.m; sourceTree = "<group>"; };
+		84E1B45D165531D500BAD4CD /* ViewController_dbService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_dbService.h; sourceTree = "<group>"; };
+		84E1B45F165532A800BAD4CD /* ViewController_Aufzeichnung.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController_Aufzeichnung.m; sourceTree = "<group>"; };
+		84E1B460165532A800BAD4CD /* ViewController_Aufzeichnung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_Aufzeichnung.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		840D51D5164FDA3400A307B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B8E14616518B2A00AC1FE7 /* CoreData.framework in Frameworks */,
+				840D51DD164FDA3400A307B4 /* UIKit.framework in Frameworks */,
+				840D51DF164FDA3400A307B4 /* Foundation.framework in Frameworks */,
+				840D51E1164FDA3400A307B4 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		840D51F5164FDA3400A307B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840D51FB164FDA3400A307B4 /* SenTestingKit.framework in Frameworks */,
+				840D51FC164FDA3400A307B4 /* UIKit.framework in Frameworks */,
+				840D51FD164FDA3400A307B4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		840D51CD164FDA3400A307B4 = {
+			isa = PBXGroup;
+			children = (
+				84B8E14516518B2A00AC1FE7 /* CoreData.framework */,
+				840D51E2164FDA3400A307B4 /* Fahrtenbuch */,
+				840D5200164FDA3400A307B4 /* FahrtenbuchTests */,
+				840D51DB164FDA3400A307B4 /* Frameworks */,
+				840D51D9164FDA3400A307B4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		840D51D9164FDA3400A307B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				840D51D8164FDA3400A307B4 /* Fahrtenbuch.app */,
+				840D51F9164FDA3400A307B4 /* FahrtenbuchTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		840D51DB164FDA3400A307B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				840D51DC164FDA3400A307B4 /* UIKit.framework */,
+				840D51DE164FDA3400A307B4 /* Foundation.framework */,
+				840D51E0164FDA3400A307B4 /* CoreGraphics.framework */,
+				840D51FA164FDA3400A307B4 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		840D51E2164FDA3400A307B4 /* Fahrtenbuch */ = {
+			isa = PBXGroup;
+			children = (
+				84E1B45A165530BF00BAD4CD /* Extern */,
+				840D51EB164FDA3400A307B4 /* AppDelegate.h */,
+				840D51EC164FDA3400A307B4 /* AppDelegate.m */,
+				840D51EE164FDA3400A307B4 /* MainStoryboard.storyboard */,
+				84B8E1391651802D00AC1FE7 /* CoreDataHelperClass.h */,
+				84B8E13A1651802D00AC1FE7 /* CoreDataHelperClass.m */,
+				8421C3ED164FF82F0008E6A1 /* EinstellungenViewController.h */,
+				8421C3EE164FF82F0008E6A1 /* EinstellungenViewController.m */,
+				840D521B164FE62200A307B4 /* VersendenTableViewController.h */,
+				840D521C164FE62200A307B4 /* VersendenTableViewController.m */,
+				840D5218164FE3B500A307B4 /* VerwaltenTableViewController.h */,
+				840D5219164FE3B500A307B4 /* VerwaltenTableViewController.m */,
+				840D5215164FE37600A307B4 /* AufzeichenViewController.h */,
+				840D5216164FE37600A307B4 /* AufzeichenViewController.m */,
+				840D51F1164FDA3400A307B4 /* ViewController.h */,
+				840D51F2164FDA3400A307B4 /* ViewController.m */,
+				84B8E141165187C100AC1FE7 /* Datamodel */,
+				840D51E3164FDA3400A307B4 /* Supporting Files */,
+			);
+			path = Fahrtenbuch;
+			sourceTree = "<group>";
+		};
+		840D51E3164FDA3400A307B4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				840D51E4164FDA3400A307B4 /* Fahrtenbuch-Info.plist */,
+				840D51E5164FDA3400A307B4 /* InfoPlist.strings */,
+				840D51E8164FDA3400A307B4 /* main.m */,
+				840D51EA164FDA3400A307B4 /* Fahrtenbuch-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		840D5200164FDA3400A307B4 /* FahrtenbuchTests */ = {
+			isa = PBXGroup;
+			children = (
+				840D5206164FDA3400A307B4 /* FahrtenbuchTests.h */,
+				840D5207164FDA3400A307B4 /* FahrtenbuchTests.m */,
+				840D5201164FDA3400A307B4 /* Supporting Files */,
+			);
+			path = FahrtenbuchTests;
+			sourceTree = "<group>";
+		};
+		840D5201164FDA3400A307B4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				840D5202164FDA3400A307B4 /* FahrtenbuchTests-Info.plist */,
+				840D5203164FDA3400A307B4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84B8E141165187C100AC1FE7 /* Datamodel */ = {
+			isa = PBXGroup;
+			children = (
+				84B8E142165187DA00AC1FE7 /* Model.xcdatamodeld */,
+				84B8E147165199BF00AC1FE7 /* Einstellungen.h */,
+				84B8E148165199BF00AC1FE7 /* Einstellungen.m */,
+			);
+			name = Datamodel;
+			sourceTree = "<group>";
+		};
+		84E1B45A165530BF00BAD4CD /* Extern */ = {
+			isa = PBXGroup;
+			children = (
+				84E1B45F165532A800BAD4CD /* ViewController_Aufzeichnung.m */,
+				84E1B460165532A800BAD4CD /* ViewController_Aufzeichnung.h */,
+				84E1B45C165531D500BAD4CD /* ViewController_dbService.m */,
+				84E1B45D165531D500BAD4CD /* ViewController_dbService.h */,
+			);
+			name = Extern;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		840D51D7164FDA3400A307B4 /* Fahrtenbuch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 840D520B164FDA3400A307B4 /* Build configuration list for PBXNativeTarget "Fahrtenbuch" */;
+			buildPhases = (
+				840D51D4164FDA3400A307B4 /* Sources */,
+				840D51D5164FDA3400A307B4 /* Frameworks */,
+				840D51D6164FDA3400A307B4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fahrtenbuch;
+			productName = Fahrtenbuch;
+			productReference = 840D51D8164FDA3400A307B4 /* Fahrtenbuch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		840D51F8164FDA3400A307B4 /* FahrtenbuchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 840D520E164FDA3400A307B4 /* Build configuration list for PBXNativeTarget "FahrtenbuchTests" */;
+			buildPhases = (
+				840D51F4164FDA3400A307B4 /* Sources */,
+				840D51F5164FDA3400A307B4 /* Frameworks */,
+				840D51F6164FDA3400A307B4 /* Resources */,
+				840D51F7164FDA3400A307B4 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				840D51FF164FDA3400A307B4 /* PBXTargetDependency */,
+			);
+			name = FahrtenbuchTests;
+			productName = FahrtenbuchTests;
+			productReference = 840D51F9164FDA3400A307B4 /* FahrtenbuchTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		840D51CF164FDA3400A307B4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 840D51D2164FDA3400A307B4 /* Build configuration list for PBXProject "Fahrtenbuch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 840D51CD164FDA3400A307B4;
+			productRefGroup = 840D51D9164FDA3400A307B4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				840D51D7164FDA3400A307B4 /* Fahrtenbuch */,
+				840D51F8164FDA3400A307B4 /* FahrtenbuchTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		840D51D6164FDA3400A307B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840D51E7164FDA3400A307B4 /* InfoPlist.strings in Resources */,
+				840D51F0164FDA3400A307B4 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		840D51F6164FDA3400A307B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840D5205164FDA3400A307B4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		840D51F7164FDA3400A307B4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		840D51D4164FDA3400A307B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840D51E9164FDA3400A307B4 /* main.m in Sources */,
+				840D51ED164FDA3400A307B4 /* AppDelegate.m in Sources */,
+				840D51F3164FDA3400A307B4 /* ViewController.m in Sources */,
+				840D5217164FE37600A307B4 /* AufzeichenViewController.m in Sources */,
+				840D521A164FE3B500A307B4 /* VerwaltenTableViewController.m in Sources */,
+				840D521D164FE62200A307B4 /* VersendenTableViewController.m in Sources */,
+				8421C3EF164FF82F0008E6A1 /* EinstellungenViewController.m in Sources */,
+				84B8E13B1651802D00AC1FE7 /* CoreDataHelperClass.m in Sources */,
+				84B8E144165187DA00AC1FE7 /* Model.xcdatamodeld in Sources */,
+				84B8E149165199BF00AC1FE7 /* Einstellungen.m in Sources */,
+				84E1B45E165531D500BAD4CD /* ViewController_dbService.m in Sources */,
+				84E1B461165532A800BAD4CD /* ViewController_Aufzeichnung.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		840D51F4164FDA3400A307B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840D5208164FDA3400A307B4 /* FahrtenbuchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		840D51FF164FDA3400A307B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 840D51D7164FDA3400A307B4 /* Fahrtenbuch */;
+			targetProxy = 840D51FE164FDA3400A307B4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		840D51E5164FDA3400A307B4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				840D51E6164FDA3400A307B4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		840D51EE164FDA3400A307B4 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				840D51EF164FDA3400A307B4 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		840D5203164FDA3400A307B4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				840D5204164FDA3400A307B4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		840D5209164FDA3400A307B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		840D520A164FDA3400A307B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		840D520C164FDA3400A307B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fahrtenbuch/Fahrtenbuch-Prefix.pch";
+				INFOPLIST_FILE = "Fahrtenbuch/Fahrtenbuch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		840D520D164FDA3400A307B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fahrtenbuch/Fahrtenbuch-Prefix.pch";
+				INFOPLIST_FILE = "Fahrtenbuch/Fahrtenbuch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		840D520F164FDA3400A307B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Fahrtenbuch.app/Fahrtenbuch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fahrtenbuch/Fahrtenbuch-Prefix.pch";
+				INFOPLIST_FILE = "FahrtenbuchTests/FahrtenbuchTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		840D5210164FDA3400A307B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Fahrtenbuch.app/Fahrtenbuch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fahrtenbuch/Fahrtenbuch-Prefix.pch";
+				INFOPLIST_FILE = "FahrtenbuchTests/FahrtenbuchTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		840D51D2164FDA3400A307B4 /* Build configuration list for PBXProject "Fahrtenbuch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				840D5209164FDA3400A307B4 /* Debug */,
+				840D520A164FDA3400A307B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		840D520B164FDA3400A307B4 /* Build configuration list for PBXNativeTarget "Fahrtenbuch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				840D520C164FDA3400A307B4 /* Debug */,
+				840D520D164FDA3400A307B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		840D520E164FDA3400A307B4 /* Build configuration list for PBXNativeTarget "FahrtenbuchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				840D520F164FDA3400A307B4 /* Debug */,
+				840D5210164FDA3400A307B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84B8E142165187DA00AC1FE7 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84B8E143165187DA00AC1FE7 /* Model.xcdatamodel */,
+			);
+			currentVersion = 84B8E143165187DA00AC1FE7 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 840D51CF164FDA3400A307B4 /* Project object */;
+}
