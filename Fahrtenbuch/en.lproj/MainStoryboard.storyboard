@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="K2B-D8-OCD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="K2B-D8-OCD">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--Einstellungen View Controller - Einstellungen-->
         <scene sceneID="S1W-KK-qWd">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bV-w4-P48" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -75,6 +77,7 @@
             </objects>
             <point key="canvasLocation" x="601" y="-168"/>
         </scene>
+        <!--View Controller - Fahrtenbuch-->
         <scene sceneID="kgG-Vm-4P4">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cum-h7-vLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -163,6 +166,7 @@
             </objects>
             <point key="canvasLocation" x="-330" y="128"/>
         </scene>
+        <!--Verwalten Table View Controller - Fahrten verwalten-->
         <scene sceneID="u2M-HR-D7L">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZ1-N2-xNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -208,6 +212,7 @@
             </objects>
             <point key="canvasLocation" x="163" y="150"/>
         </scene>
+        <!--Versenden Table View Controller - Fahrtenbuch versenden-->
         <scene sceneID="toi-aI-e7r">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kN-SZ-F5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -253,6 +258,7 @@
             </objects>
             <point key="canvasLocation" x="163" y="728"/>
         </scene>
+        <!--Aufzeichen View Controller - Fahrt aufzeichnen-->
         <scene sceneID="ZoD-sQ-kb1">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYw-Gq-axz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,13 +266,88 @@
                     <view key="view" contentMode="scaleToFill" id="ebF-cE-lKj">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="city" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Nwz-Tw-6wq">
+                                <rect key="frame" x="62" y="55" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="sdN-uc-wpG">
+                                <rect key="frame" x="62" y="103" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="nkH-if-AeG">
+                                <rect key="frame" x="62" y="148" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="startTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="V2Q-My-6Tf">
+                                <rect key="frame" x="62" y="197" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="endTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="8al-y7-fFl">
+                                <rect key="frame" x="62" y="250" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LwJ-sX-FZo">
+                                <rect key="frame" x="62" y="314" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="start">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn_start:" destination="Qgt-MU-Gs1" eventType="touchUpInside" id="XtM-Uh-vIA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="an2-Sd-9ES">
+                                <rect key="frame" x="189" y="314" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="stop">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn_stop:" destination="Qgt-MU-Gs1" eventType="touchUpInside" id="GgQ-mP-lv8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Fahrt aufzeichnen" id="bp3-Vt-zMK"/>
+                    <connections>
+                        <outlet property="lbl_city" destination="Nwz-Tw-6wq" id="WkG-Oq-zXb"/>
+                        <outlet property="lbl_distance" destination="sdN-uc-wpG" id="tN5-FB-OIa"/>
+                        <outlet property="lbl_endTime" destination="8al-y7-fFl" id="Xds-HR-2dN"/>
+                        <outlet property="lbl_speed" destination="nkH-if-AeG" id="Uiy-ds-BBA"/>
+                        <outlet property="lbl_startTime" destination="V2Q-My-6Tf" id="KSh-Lr-0u0"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="163" y="-413"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="MpU-mG-vpg">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhP-Mb-0sv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -285,6 +366,15 @@
     <classes>
         <class className="AufzeichenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AufzeichenViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="btn_start:"/>
+                <relationship kind="action" name="btn_stop:"/>
+                <relationship kind="outlet" name="lbl_city" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lbl_distance" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lbl_endTime" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lbl_speed" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lbl_startTime" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="EinstellungenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EinstellungenViewController.h"/>
@@ -304,6 +394,15 @@
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startPressed"/>
+                <relationship kind="action" name="stopPressed"/>
+                <relationship kind="outlet" name="labelCity" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelDistance" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelSpeed" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelStartTime" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelStopTime" candidateClass="UILabel"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

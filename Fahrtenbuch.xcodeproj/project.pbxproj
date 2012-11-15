@@ -29,7 +29,7 @@
 		84B8E14616518B2A00AC1FE7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B8E14516518B2A00AC1FE7 /* CoreData.framework */; };
 		84B8E149165199BF00AC1FE7 /* Einstellungen.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8E148165199BF00AC1FE7 /* Einstellungen.m */; };
 		84E1B45E165531D500BAD4CD /* ViewController_dbService.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E1B45C165531D500BAD4CD /* ViewController_dbService.m */; };
-		84E1B461165532A800BAD4CD /* ViewController_Aufzeichnung.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E1B45F165532A800BAD4CD /* ViewController_Aufzeichnung.m */; };
+		A5B7A21216558ED3001BFABE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B7A21116558ED3001BFABE /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,8 +78,7 @@
 		84B8E148165199BF00AC1FE7 /* Einstellungen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Einstellungen.m; sourceTree = "<group>"; };
 		84E1B45C165531D500BAD4CD /* ViewController_dbService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController_dbService.m; sourceTree = "<group>"; };
 		84E1B45D165531D500BAD4CD /* ViewController_dbService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_dbService.h; sourceTree = "<group>"; };
-		84E1B45F165532A800BAD4CD /* ViewController_Aufzeichnung.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController_Aufzeichnung.m; sourceTree = "<group>"; };
-		84E1B460165532A800BAD4CD /* ViewController_Aufzeichnung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_Aufzeichnung.h; sourceTree = "<group>"; };
+		A5B7A21116558ED3001BFABE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B7A21216558ED3001BFABE /* CoreLocation.framework in Frameworks */,
 				84B8E14616518B2A00AC1FE7 /* CoreData.framework in Frameworks */,
 				840D51DD164FDA3400A307B4 /* UIKit.framework in Frameworks */,
 				840D51DF164FDA3400A307B4 /* Foundation.framework in Frameworks */,
@@ -110,6 +110,7 @@
 		840D51CD164FDA3400A307B4 = {
 			isa = PBXGroup;
 			children = (
+				A5B7A21116558ED3001BFABE /* CoreLocation.framework */,
 				84B8E14516518B2A00AC1FE7 /* CoreData.framework */,
 				840D51E2164FDA3400A307B4 /* Fahrtenbuch */,
 				840D5200164FDA3400A307B4 /* FahrtenbuchTests */,
@@ -206,8 +207,6 @@
 		84E1B45A165530BF00BAD4CD /* Extern */ = {
 			isa = PBXGroup;
 			children = (
-				84E1B45F165532A800BAD4CD /* ViewController_Aufzeichnung.m */,
-				84E1B460165532A800BAD4CD /* ViewController_Aufzeichnung.h */,
 				84E1B45C165531D500BAD4CD /* ViewController_dbService.m */,
 				84E1B45D165531D500BAD4CD /* ViewController_dbService.h */,
 			);
@@ -331,7 +330,6 @@
 				84B8E144165187DA00AC1FE7 /* Model.xcdatamodeld in Sources */,
 				84B8E149165199BF00AC1FE7 /* Einstellungen.m in Sources */,
 				84E1B45E165531D500BAD4CD /* ViewController_dbService.m in Sources */,
-				84E1B461165532A800BAD4CD /* ViewController_Aufzeichnung.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
