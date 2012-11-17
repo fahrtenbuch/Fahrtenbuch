@@ -9,6 +9,8 @@
 #import "AufzeichenViewController.h"
 
 @implementation AufzeichenViewController
+@synthesize pck_water;
+@synthesize lbl_water;
 @synthesize lbl_city;
 @synthesize lbl_distance;
 @synthesize lbl_speed;
@@ -18,21 +20,22 @@
 
 #pragma mark - viewDidLoad on RecordViewController
 
-/*- (void)viewDidLoad
+- (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
     
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd.MM HH:mm"];
     
     locationManagerCityName = [[CLLocationManager alloc] init];
-    locationManagerCityName.delegate = self;
+    locationManagerCityName.delegate = self; //fixme: we should move the delegator to a sepperate class
     locationManagerCityName.distanceFilter = kCLDistanceFilterNone;
     locationManagerCityName.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     [locationManagerCityName startUpdatingLocation];
     
-}*/
+}
 
 
 #pragma mark - locationManager record methods
@@ -52,7 +55,25 @@
                  [placemark subThoroughfare], [placemark thoroughfare], [placemark locality], [placemark administrativeArea]];
                  */
                 //labelCity.text = address;
-                lbl_city.text = [placemark locality];
+                
+                //FIXME: shoulden't be done during location update, because it's just the start location. Maybe we can move this out of these method.
+                if( [[lbl_city text] length] <= 0) {
+
+                    lbl_city.text = [placemark locality];
+                    
+                } if ([[lbl_city text] length] > 0) {
+
+                    NSString *urlString = [NSString stringWithFormat:@"http://paddelsuechtige.de/REST/?location=%@",[lbl_city text]];
+                    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                    NSURL *url = [NSURL  URLWithString:urlString];
+                    NSData *data = [NSData dataWithContentsOfURL:url];
+                    NSError *error;
+                    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                    water = [json valueForKey: @"was"];
+
+                    [pck_water reloadAllComponents];
+                }
+                
                 [locationManagerCityName stopUpdatingLocation];
             }
         }];
@@ -82,7 +103,7 @@
     
     distance = 0;
     locationManagerRoute = [[CLLocationManager alloc] init];
-    locationManagerRoute.delegate = self;
+    locationManagerRoute.delegate = self; //fixme: we should move the delegator to a sepperate class
     
     //soll in App einstellbar sein
     locationManagerRoute.distanceFilter = kCLDistanceFilterNone;
@@ -91,6 +112,35 @@
     [locationManagerRoute startUpdatingLocation];
     
 }
+
+
+#pragma mark - Necessary Picker View methods
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    //One column
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    //set number of rows
+    return [water count];
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    //set item per row
+    return [water objectAtIndex:row];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
+      inComponent:(NSInteger)component
+{
+        NSString *selection = [water objectAtIndex:row];
+        [lbl_water setText:selection];
+}
+
 
 - (IBAction)btn_stop:(id)sender {
     
@@ -141,6 +191,8 @@
     [self setLbl_speed:nil];
     [self setLbl_startTime:nil];
     [self setLbl_endTime:nil];
+    [self setLbl_water:nil];
+    [self setPck_water:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

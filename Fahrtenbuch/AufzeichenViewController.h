@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface AufzeichenViewController : UIViewController
+@interface AufzeichenViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIPickerView *pck_water;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_water;
 
 @property (weak, nonatomic) IBOutlet UILabel *lbl_city;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_distance;
@@ -22,6 +25,7 @@
 
 @end
 
+NSArray *water;
 
 CLLocationManager *locationManagerRoute;
 CLLocationManager *locationManagerCityName;
