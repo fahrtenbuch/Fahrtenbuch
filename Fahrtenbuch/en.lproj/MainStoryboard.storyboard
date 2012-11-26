@@ -346,21 +346,30 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="water" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qWQ-1U-o1R">
-                                <rect key="frame" x="136" y="108" width="113" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="0I3-tQ-ZxA">
+                                <rect key="frame" x="136" y="104" width="164" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView contentMode="scaleToFill" id="EEI-b3-D30">
-                                <rect key="frame" x="0.0" y="200" width="320" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="Qgt-MU-Gs1" id="aFW-X4-JSg"/>
-                                    <outlet property="delegate" destination="Qgt-MU-Gs1" id="579-sS-sUg"/>
+                                    <action selector="textFieldDoneEditing:" destination="Qgt-MU-Gs1" eventType="editingDidEndOnExit" id="IwP-RK-egn"/>
                                 </connections>
-                            </pickerView>
+                            </textField>
+                            <view contentMode="scaleToFill" id="yLz-4I-Os2">
+                                <rect key="frame" x="0.0" y="200" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <pickerView alpha="0.60000000000000009" contentMode="scaleToFill" id="EEI-b3-D30">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Qgt-MU-Gs1" id="aFW-X4-JSg"/>
+                                            <outlet property="delegate" destination="Qgt-MU-Gs1" id="579-sS-sUg"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -371,8 +380,8 @@
                         <outlet property="lbl_endTime" destination="8al-y7-fFl" id="Xds-HR-2dN"/>
                         <outlet property="lbl_speed" destination="nkH-if-AeG" id="Uiy-ds-BBA"/>
                         <outlet property="lbl_startTime" destination="V2Q-My-6Tf" id="KSh-Lr-0u0"/>
-                        <outlet property="lbl_water" destination="qWQ-1U-o1R" id="Vlp-FI-VtG"/>
                         <outlet property="pck_water" destination="EEI-b3-D30" id="uQd-NK-Pqk"/>
+                        <outlet property="txt_water" destination="0I3-tQ-ZxA" id="KtL-fe-8PG"/>
                     </connections>
                 </viewController>
             </objects>
@@ -400,6 +409,7 @@
             <relationships>
                 <relationship kind="action" name="btn_start:"/>
                 <relationship kind="action" name="btn_stop:"/>
+                <relationship kind="action" name="textFieldDoneEditing:"/>
                 <relationship kind="outlet" name="lbl_city" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lbl_distance" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lbl_endTime" candidateClass="UILabel"/>
@@ -407,6 +417,7 @@
                 <relationship kind="outlet" name="lbl_startTime" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lbl_water" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="pck_water" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="txt_water" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="EinstellungenViewController" superclassName="UIViewController">

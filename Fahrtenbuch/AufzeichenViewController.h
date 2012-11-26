@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIPickerView *pck_water;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_water;
+@property (weak, nonatomic) IBOutlet UITextField *txt_water;
 
 @property (weak, nonatomic) IBOutlet UILabel *lbl_city;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_distance;
@@ -22,6 +23,7 @@
 
 - (IBAction)btn_start:(id)sender;
 - (IBAction)btn_stop:(id)sender;
+- (IBAction)textFieldDoneEditing:(id)sender;
 
 @end
 

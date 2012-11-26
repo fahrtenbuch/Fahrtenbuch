@@ -10,7 +10,7 @@
 
 @implementation AufzeichenViewController
 @synthesize pck_water;
-@synthesize lbl_water;
+@synthesize txt_water;
 @synthesize lbl_city;
 @synthesize lbl_distance;
 @synthesize lbl_speed;
@@ -72,6 +72,7 @@
                     water = [json valueForKey: @"was"];
 
                     [pck_water reloadAllComponents];
+                    [txt_water setText:[water objectAtIndex:0]];
                 }
                 
                 [locationManagerCityName stopUpdatingLocation];
@@ -111,6 +112,9 @@
     locationManagerRoute.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     [locationManagerRoute startUpdatingLocation];
     
+    //disable all unnecessary elements on the view after start button was pressed
+    [pck_water setHidden:TRUE];
+    
 }
 
 
@@ -134,11 +138,12 @@
     return [water objectAtIndex:row];
 }
 
+
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
       inComponent:(NSInteger)component
 {
         NSString *selection = [water objectAtIndex:row];
-        [lbl_water setText:selection];
+        [txt_water setText:selection]; //set water textfield value
 }
 
 
@@ -146,6 +151,15 @@
     
     [locationManagerRoute stopUpdatingLocation];
     lbl_endTime.text = [dateFormatter stringFromDate:[NSDate date]];
+    
+    //enable all necessary view elements after stop button was pressed
+    [pck_water setHidden:FALSE];
+}
+
+- (IBAction)textFieldDoneEditing:(id)sender {
+    
+    //this method removes the keyboard from textfield
+    [sender resignFirstResponder];
 }
 
 
@@ -191,8 +205,8 @@
     [self setLbl_speed:nil];
     [self setLbl_startTime:nil];
     [self setLbl_endTime:nil];
-    [self setLbl_water:nil];
     [self setPck_water:nil];
+    [self setTxt_water:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
