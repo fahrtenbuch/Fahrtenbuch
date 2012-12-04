@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="K2B-D8-OCD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="K2B-D8-OCD">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--Einstellungen View Controller - Einstellungen-->
         <scene sceneID="S1W-KK-qWd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6bV-w4-P48" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="PZm-2A-akF" customClass="EinstellungenViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7vW-Ts-hE8">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -74,13 +72,13 @@
                         <outlet property="vereinsnameTextField" destination="4wK-0u-Zib" id="x3Z-Ty-Vsy"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6bV-w4-P48" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="601" y="-168"/>
         </scene>
         <!--View Controller - Fahrtenbuch-->
         <scene sceneID="kgG-Vm-4P4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cum-h7-vLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="d6M-a9-rtm" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S7a-Dv-tC3">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -163,13 +161,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Fahrtenbuch" id="eSQ-B5-Atr"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cum-h7-vLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-330" y="128"/>
         </scene>
         <!--Verwalten Table View Controller - Fahrten verwalten-->
         <scene sceneID="u2M-HR-D7L">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fZ1-N2-xNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="" id="PWi-hG-zXb" customClass="VerwaltenTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dCV-0c-QO9">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -209,13 +207,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Fahrten verwalten" id="qtf-uh-DUY"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fZ1-N2-xNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="163" y="150"/>
         </scene>
         <!--Versenden Table View Controller - Fahrtenbuch versenden-->
         <scene sceneID="toi-aI-e7r">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4kN-SZ-F5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="jAP-JH-N6c" customClass="VersendenTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pJ8-yM-yY4">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -255,13 +253,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Fahrtenbuch versenden" id="USB-KL-uKt"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kN-SZ-F5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="163" y="728"/>
         </scene>
         <!--Aufzeichen View Controller - Tour Record-->
         <scene sceneID="ZoD-sQ-kb1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYw-Gq-axz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Qgt-MU-Gs1" customClass="AufzeichenViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ebF-cE-lKj">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -346,6 +344,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView alpha="0.60000000000000009" contentMode="scaleToFill" id="EEI-b3-D30">
+                                <rect key="frame" x="0.0" y="200" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Qgt-MU-Gs1" id="aFW-X4-JSg"/>
+                                    <outlet property="delegate" destination="Qgt-MU-Gs1" id="579-sS-sUg"/>
+                                </connections>
+                            </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="0I3-tQ-ZxA">
                                 <rect key="frame" x="136" y="104" width="164" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -355,21 +361,6 @@
                                     <action selector="textFieldDoneEditing:" destination="Qgt-MU-Gs1" eventType="editingDidEndOnExit" id="IwP-RK-egn"/>
                                 </connections>
                             </textField>
-                            <view contentMode="scaleToFill" id="yLz-4I-Os2">
-                                <rect key="frame" x="0.0" y="200" width="320" height="216"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <pickerView alpha="0.60000000000000009" contentMode="scaleToFill" id="EEI-b3-D30">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="Qgt-MU-Gs1" id="aFW-X4-JSg"/>
-                                            <outlet property="delegate" destination="Qgt-MU-Gs1" id="579-sS-sUg"/>
-                                        </connections>
-                                    </pickerView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -384,13 +375,13 @@
                         <outlet property="txt_water" destination="0I3-tQ-ZxA" id="KtL-fe-8PG"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYw-Gq-axz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="163" y="-413"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MpU-mG-vpg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qhP-Mb-0sv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="K2B-D8-OCD" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="7XF-jq-b8q">
                         <autoresizingMask key="autoresizingMask"/>
@@ -399,6 +390,7 @@
                         <segue destination="d6M-a9-rtm" kind="relationship" relationship="rootViewController" id="2Cn-Jk-MUY"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhP-Mb-0sv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-743" y="128"/>
         </scene>
