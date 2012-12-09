@@ -12,8 +12,8 @@
 
 @interface Aufzeichnung : NSManagedObject
 
-@property (nonatomic, retain) NSDate * startTime;
-@property (nonatomic, retain) NSDate * stopTime;
+@property (nonatomic, retain) NSString * startTime;
+@property (nonatomic, retain) NSString * stopTime;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSNumber * averageSpeed;
 @property (nonatomic, retain) NSNumber * averageDistance;

@@ -21,6 +21,12 @@
 
 + (NSManagedObjectContext*) managedObjectContext
 {
+    static NSManagedObjectContext *managedObjectContext;
+    if(managedObjectContext != nil)
+    {
+        return managedObjectContext;
+    }
+    
     NSError *error;
     [[NSFileManager defaultManager] createDirectoryAtPath:[CoreDataHelperClass directoryForDatabaseFileName] withIntermediateDirectories:YES attributes:nil error:&error];
     if(error)
@@ -43,7 +49,7 @@
         return nil;
     }
      
-    NSManagedObjectContext *managedObjectContext = [[NSManagedObjectContext alloc] init];
+    managedObjectContext = [[NSManagedObjectContext alloc] init];
     managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator;
     
     return managedObjectContext;

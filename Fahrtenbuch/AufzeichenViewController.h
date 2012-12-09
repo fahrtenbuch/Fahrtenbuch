@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface AufzeichenViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface AufzeichenViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *pck_water;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_water;
@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_speed;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_startTime;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_endTime;
+
+@property (strong, nonatomic) NSManagedObjectContext *context;
 
 - (IBAction)btn_start:(id)sender;
 - (IBAction)btn_stop:(id)sender;
@@ -34,5 +36,10 @@ CLLocationManager *locationManagerCityName;
 
 NSDateFormatter *dateFormatter;
 NSDate *start;
+NSDate *stop;
 
-double distance;
+NSString *selection;
+NSString *location;
+
+double distance,speed;
+

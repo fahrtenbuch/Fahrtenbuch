@@ -7,25 +7,32 @@
 //
 
 #import "VerwaltenTableViewController.h"
+#import "CoreDataHelperClass.h"
+#import "Aufzeichnung.h"
 
 @interface VerwaltenTableViewController() <UISearchBarDelegate>
 @property (nonatomic, strong) UIBarButtonItem *barButtonItemDone;
 @property (nonatomic, strong) UIBarButtonItem *barButtonItemCancel;
 @property (nonatomic, strong) UIBarButtonItem *barButtonItemSearch;
-@property (nonatomic, strong) UIBarButtonItem *barButtonItemEdit;
+@property (nonatomic, strong) UIBarButtonItem *barButtonItemDelete;
 @property (nonatomic, strong) UISearchBar *searchBar;
 
 @property (nonatomic, strong) NSPredicate *basePredicate;
 @property (nonatomic, strong) NSPredicate *fetchPredicate;
+
 @end
 
 
 @implementation VerwaltenTableViewController
 
+@synthesize fetchedResultsController = _fetchedResultsController;
+
+@synthesize context;
+
 @synthesize barButtonItemCancel;
 @synthesize barButtonItemDone;
 @synthesize barButtonItemSearch;
-@synthesize barButtonItemEdit;
+@synthesize barButtonItemDelete;
 
 @synthesize basePredicate;
 @synthesize fetchPredicate;
@@ -56,18 +63,40 @@
 {
     [super viewDidLoad];
     
-    barButtonItemEdit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(barButtonItemEditPressed:)];
+    barButtonItemDelete = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(barButtonItemDeletePressed:)];
     
     barButtonItemSearch = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(barButtonItemSearchPressed:)];
     
     barButtonItemCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(barButtonItemCancelPressed:)];
     
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:barButtonItemEdit, barButtonItemSearch, nil];
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:barButtonItemDelete, barButtonItemSearch, nil];
     
     self.searchBar = [[UISearchBar alloc] init];
     self.searchBar.delegate = self;
     //self.searchBar.barStyle =
     self.searchBar.showsCancelButton = NO;
+    
+    //-------CoreData---------//
+    
+    context = [CoreDataHelperClass managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Aufzeichnung" inManagedObjectContext:context];
+    request.entity = entity;
+    request.fetchBatchSize = 64;
+    request.predicate = fetchPredicate;
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"startTime" ascending:YES];
+    
+    NSArray *sortArray = [NSArray arrayWithObject:sort];
+    request.sortDescriptors = sortArray;
+    
+    NSFetchedResultsController *ThefetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedResultsController = ThefetchedResultsController;
+    
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -82,7 +111,7 @@
     barButtonItemCancel = nil;
     barButtonItemDone = nil;
     barButtonItemSearch = nil;
-    barButtonItemEdit = nil;
+    barButtonItemDelete = nil;
     searchBar = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -119,14 +148,14 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
     // Return the number of rows in the section.
-    return 10;
+    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -140,8 +169,11 @@
     
     // Configure the cell...
 	//cell.textLabel.text = [array objectAtIndex:indexPath.row];
-    cell.textLabel.text = @"2010-02-05 16:40";
-    cell.detailTextLabel.text = @"Name - Vereinsname";
+    Aufzeichnung *auf = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = auf.location;
+    NSString *detailText = [NSString stringWithFormat:@"%@ - %@",auf.startTime,auf.stopTime];
+    cell.detailTextLabel.text = detailText;
+    
     return cell;
 }
 
@@ -197,7 +229,7 @@
      */
 }
 
--(void) barButtonItemEditPressed: (id) sender
+-(void) barButtonItemDeletePressed: (id) sender
 {
     [self.navigationController setToolbarHidden:NO animated:YES];
     [self.tableView setEditing:YES animated:YES];
@@ -211,7 +243,7 @@
 {
     [self.navigationController setToolbarHidden:YES animated:YES];
     [self.tableView setEditing:NO animated:YES];
-    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:barButtonItemEdit,barButtonItemSearch,nil] animated:YES];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:barButtonItemDelete,barButtonItemSearch,nil] animated:YES];
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     
     self.navigationItem.hidesBackButton = NO;
@@ -258,7 +290,7 @@
     if(searchText.length > 0)
     {
         self.barButtonItemSearch.tintColor = [UIColor orangeColor];
-        NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"location contains[c] %@ OR start contains %@",searchText, searchText];
+        NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"location contains[c] %@ OR startTime contains[c] %@",searchText, searchText];
         self.fetchPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObject:filterPredicate]];
     }
     else
@@ -268,9 +300,9 @@
     }
     
     
-    //self.fetchedResultsController = nil;
+    self.fetchedResultsController = nil;
     
-    /*context = [CoreDataHelperClass managedObjectContext];
+    context = [CoreDataHelperClass managedObjectContext];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
@@ -291,7 +323,7 @@
     [self.fetchedResultsController performFetch:&error];
     
     [self.tableView reloadData];
-     */
+    
 }
 
 -(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView
