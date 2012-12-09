@@ -28,6 +28,7 @@
 		84B8E144165187DA00AC1FE7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84B8E142165187DA00AC1FE7 /* Model.xcdatamodeld */; };
 		84B8E14616518B2A00AC1FE7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B8E14516518B2A00AC1FE7 /* CoreData.framework */; };
 		84B8E149165199BF00AC1FE7 /* Einstellungen.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8E148165199BF00AC1FE7 /* Einstellungen.m */; };
+		84E3BD741674F9AF002BFE4D /* Aufzeichnung.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E3BD731674F9AF002BFE4D /* Aufzeichnung.m */; };
 		A5B7A21216558ED3001BFABE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B7A21116558ED3001BFABE /* CoreLocation.framework */; };
 		A5B7A21616559ED3001BFABE /* ViewController_dbService.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B7A21516559ED3001BFABE /* ViewController_dbService.m */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,8 @@
 		84B8E14516518B2A00AC1FE7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		84B8E147165199BF00AC1FE7 /* Einstellungen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Einstellungen.h; sourceTree = "<group>"; };
 		84B8E148165199BF00AC1FE7 /* Einstellungen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Einstellungen.m; sourceTree = "<group>"; };
+		84E3BD721674F9AF002BFE4D /* Aufzeichnung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aufzeichnung.h; sourceTree = "<group>"; };
+		84E3BD731674F9AF002BFE4D /* Aufzeichnung.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aufzeichnung.m; sourceTree = "<group>"; };
 		A5B7A21116558ED3001BFABE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A5B7A21416559ED3001BFABE /* ViewController_dbService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_dbService.h; sourceTree = "<group>"; };
 		A5B7A21516559ED3001BFABE /* ViewController_dbService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController_dbService.m; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				84B8E142165187DA00AC1FE7 /* Model.xcdatamodeld */,
+				84E3BD721674F9AF002BFE4D /* Aufzeichnung.h */,
+				84E3BD731674F9AF002BFE4D /* Aufzeichnung.m */,
 				84B8E147165199BF00AC1FE7 /* Einstellungen.h */,
 				84B8E148165199BF00AC1FE7 /* Einstellungen.m */,
 			);
@@ -321,6 +326,7 @@
 				84B8E13B1651802D00AC1FE7 /* CoreDataHelperClass.m in Sources */,
 				84B8E144165187DA00AC1FE7 /* Model.xcdatamodeld in Sources */,
 				84B8E149165199BF00AC1FE7 /* Einstellungen.m in Sources */,
+				84E3BD741674F9AF002BFE4D /* Aufzeichnung.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

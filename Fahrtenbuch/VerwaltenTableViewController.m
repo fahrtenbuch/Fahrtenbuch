@@ -142,7 +142,6 @@
 	//cell.textLabel.text = [array objectAtIndex:indexPath.row];
     cell.textLabel.text = @"2010-02-05 16:40";
     cell.detailTextLabel.text = @"Name - Vereinsname";
-    NSLog(@"2010-02-05 16:40");
     return cell;
 }
 

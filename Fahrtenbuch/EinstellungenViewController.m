@@ -54,6 +54,69 @@
     
     //---Update
     /*
+     NSFetchRequest *request = [[NSFetchRequest alloc] init];
+     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Einstellungen" inManagedObjectContext:context];
+     request.entity = entity;
+     request.predicate = nil;
+     
+     NSError *error;
+     Einstellungen *ein = [[context executeFetchRequest:request error:&error] objectAtIndex:0];
+     ein.name = @"Youssef";
+     ein.vereinsname = @"Schwimmen";
+     
+     NSNumber *intervallnummer = [NSNumber numberWithInt:1];
+     
+     ein.intervall = intervallnummer;
+     //---/Update
+     */
+    
+    
+    //---Delete
+    /*
+     NSFetchRequest *request = [[NSFetchRequest alloc] init];
+     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Einstellungen" inManagedObjectContext:context];
+     request.entity = entity;
+     request.predicate = nil;
+     
+     NSError *error;
+     
+     Einstellungen *ein = [[context executeFetchRequest:request error:&error] objectAtIndex:0];
+     
+     [context deleteObject:ein];
+     */
+    //---/Delete
+    
+    
+    
+    /*
+     //-----Insert
+     Einstellungen *einstellungen_insert = [CoreDataHelperClass insertManagedObjectOfClass:[Einstellungen class] inManagedObjectContext:context];
+     einstellungen_insert.name = @"Test1";
+     einstellungen_insert.vereinsname = @"TestVerein1";
+     
+     NSNumber *n = [[NSNumber alloc] initWithInt:3];
+     einstellungen_insert.intervall = n;
+     //---/insert
+     */
+    
+    /*
+    //-----Insert
+    Aufzeichnung *aufzeichnung_insert = [CoreDataHelperClass insertManagedObjectOfClass:[Aufzeichnung class] inManagedObjectContext:context];
+    aufzeichnung_insert.start = @"26.11.2012 18:00";
+    aufzeichnung_insert.stop = @"26.11.2012 19:00";
+    aufzeichnung_insert.location = @"koeln";
+    aufzeichnung_insert.water = @"water";
+    NSNumber *n = [[NSNumber alloc] initWithDouble:5.0];
+    aufzeichnung_insert.average_distance = n;
+    NSNumber *n1 = [[NSNumber alloc] initWithDouble:5.0];
+    aufzeichnung_insert.average_speed = n1;
+    //---/insert
+    */
+    
+    //[CoreDataHelperClass saveManagedObjectContext:context];
+    
+    //---Update
+    /*
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Einstellungen" inManagedObjectContext:context];
     request.entity = entity;
