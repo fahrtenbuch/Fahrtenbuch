@@ -8,9 +8,30 @@
 
 #import "VerwaltenTableViewController.h"
 
+@interface VerwaltenTableViewController() <UISearchBarDelegate>
+@property (nonatomic, strong) UIBarButtonItem *barButtonItemDone;
+@property (nonatomic, strong) UIBarButtonItem *barButtonItemCancel;
+@property (nonatomic, strong) UIBarButtonItem *barButtonItemSearch;
+@property (nonatomic, strong) UIBarButtonItem *barButtonItemEdit;
+@property (nonatomic, strong) UISearchBar *searchBar;
+
+@property (nonatomic, strong) NSPredicate *basePredicate;
+@property (nonatomic, strong) NSPredicate *fetchPredicate;
+@end
+
 
 @implementation VerwaltenTableViewController
-@synthesize array;
+
+@synthesize barButtonItemCancel;
+@synthesize barButtonItemDone;
+@synthesize barButtonItemSearch;
+@synthesize barButtonItemEdit;
+
+@synthesize basePredicate;
+@synthesize fetchPredicate;
+
+@synthesize searchBar;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,18 +56,18 @@
 {
     [super viewDidLoad];
     
-    [array addObject:@"Test"];
-    [array addObject:@"Test1"];
-    [array addObject:@"Test2"];
-    [array addObject:@"Test3"];
-    [array addObject:@"Test4"];
-    [array addObject:@"Test5"];
-    [array addObject:@"Test6"];
-    [array addObject:@"Test7"];
-    [array addObject:@"Test8"];
-    [array addObject:@"Test9"];
+    barButtonItemEdit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(barButtonItemEditPressed:)];
     
+    barButtonItemSearch = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(barButtonItemSearchPressed:)];
     
+    barButtonItemCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(barButtonItemCancelPressed:)];
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:barButtonItemEdit, barButtonItemSearch, nil];
+    
+    self.searchBar = [[UISearchBar alloc] init];
+    self.searchBar.delegate = self;
+    //self.searchBar.barStyle =
+    self.searchBar.showsCancelButton = NO;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -58,6 +79,11 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    barButtonItemCancel = nil;
+    barButtonItemDone = nil;
+    barButtonItemSearch = nil;
+    barButtonItemEdit = nil;
+    searchBar = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -92,14 +118,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
     return 10;
 }
@@ -121,16 +146,16 @@
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -142,7 +167,7 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -172,5 +197,111 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+-(void) barButtonItemEditPressed: (id) sender
+{
+    [self.navigationController setToolbarHidden:NO animated:YES];
+    [self.tableView setEditing:YES animated:YES];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:barButtonItemDone,barButtonItemSearch,nil] animated:YES];
+    [self.navigationItem setLeftBarButtonItem:barButtonItemCancel animated:YES];
+    
+    self.navigationItem.hidesBackButton = YES;
+}
+
+-(void) barButtonItemCancelPressed: (id) sender
+{
+    [self.navigationController setToolbarHidden:YES animated:YES];
+    [self.tableView setEditing:NO animated:YES];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:barButtonItemEdit,barButtonItemSearch,nil] animated:YES];
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    
+    self.navigationItem.hidesBackButton = NO;
+}
+
+-(void) barButtonItemSearchPressed: (id) sender
+{
+    if(self.tableView.tableHeaderView == nil) //Die SearchBar ist noch nicht da.
+    {
+        [self.searchBar sizeToFit];
+        self.tableView.tableHeaderView = self.searchBar;
+        [self.tableView setContentOffset:CGPointMake(0, self.searchBar.frame.size.height) animated:NO];
+        [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
+        
+    }
+    else
+    {
+        self.searchBar.text = nil;
+        [self searchBar:self.searchBar textDidChange:nil];
+        if(self.tableView.contentOffset.y <= self.tableView.tableHeaderView.frame.size.height)
+        {
+            [self.tableView setContentOffset:CGPointMake(0, self.searchBar.frame.size.height) animated:YES];
+            double delayInSeconds = 0.5;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                           {
+                               self.tableView.tableHeaderView = nil;
+                               [self.tableView setContentOffset:CGPointMake(0, 0) animated:NO];
+                           });
+        }
+        else
+        {
+            CGFloat yOffSet = self.tableView.contentOffset.y - self.tableView.tableHeaderView.frame.size.height;
+            self.tableView.tableHeaderView = nil;
+            [self.tableView setContentOffset:CGPointMake(0, yOffSet) animated:NO];
+        }
+        
+        
+    }
+}
+
+-(void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if(searchText.length > 0)
+    {
+        self.barButtonItemSearch.tintColor = [UIColor orangeColor];
+        NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"location contains[c] %@ OR start contains %@",searchText, searchText];
+        self.fetchPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObject:filterPredicate]];
+    }
+    else
+    {
+        self.barButtonItemSearch.tintColor = nil;
+        self.fetchPredicate = nil;
+    }
+    
+    
+    //self.fetchedResultsController = nil;
+    
+    /*context = [CoreDataHelperClass managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Aufzeichnung" inManagedObjectContext:context];
+    request.entity = entity;
+    request.fetchBatchSize = 64;
+    request.predicate = fetchPredicate;
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"location" ascending:YES];
+    
+    NSArray *sortArray = [NSArray arrayWithObject:sort];
+    request.sortDescriptors = sortArray;
+    
+    NSFetchedResultsController *ThefetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedResultsController = ThefetchedResultsController;
+    
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
+    
+    [self.tableView reloadData];
+     */
+}
+
+-(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if(self.searchBar.isFirstResponder)
+    {
+        [self.searchBar resignFirstResponder];
+    }
+}
+
 
 @end

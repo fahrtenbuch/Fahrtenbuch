@@ -10,6 +10,6 @@
 
 @interface VerwaltenTableViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *array;
+
 
 @end
