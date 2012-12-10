@@ -69,6 +69,8 @@
     
     barButtonItemCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(barButtonItemCancelPressed:)];
     
+    barButtonItemDone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(barButtonItemDonePressed:)];
+    
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:barButtonItemDelete, barButtonItemSearch, nil];
     
     self.searchBar = [[UISearchBar alloc] init];
@@ -182,7 +184,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return self.tableView.isEditing;
 }
 
 
@@ -192,11 +194,9 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [[CoreDataHelperClass managedObjectContext] deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+     
 }
 
 
@@ -235,12 +235,22 @@
     [self.tableView setEditing:YES animated:YES];
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:barButtonItemDone,barButtonItemSearch,nil] animated:YES];
     [self.navigationItem setLeftBarButtonItem:barButtonItemCancel animated:YES];
-    
     self.navigationItem.hidesBackButton = YES;
+}
+
+-(void) barButtonItemDonePressed: (id) sender
+{
+    [CoreDataHelperClass saveManagedObjectContext:context];
+    [self.navigationController setToolbarHidden:YES animated:YES];
+    [self.tableView setEditing:NO animated:YES];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:barButtonItemDelete,barButtonItemSearch,nil] animated:YES];
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    self.navigationItem.hidesBackButton = NO;
 }
 
 -(void) barButtonItemCancelPressed: (id) sender
 {
+    [[CoreDataHelperClass managedObjectContext]rollback];
     [self.navigationController setToolbarHidden:YES animated:YES];
     [self.tableView setEditing:NO animated:YES];
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:barButtonItemDelete,barButtonItemSearch,nil] animated:YES];

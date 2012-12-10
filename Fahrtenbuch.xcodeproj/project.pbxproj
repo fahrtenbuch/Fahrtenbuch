@@ -258,7 +258,7 @@
 		840D51CF164FDA3400A307B4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = 840D51D2164FDA3400A307B4 /* Build configuration list for PBXProject "Fahrtenbuch" */;
 			compatibilityVersion = "Xcode 3.2";
