@@ -91,11 +91,20 @@
         return nil;
     }
     return items;
-    
-    
-    
 }
 
++ (BOOL) peformFetchOnFetchedResultsController: (NSFetchedResultsController *) fetchedResultsController
+{
+    NSError *error;
+    if(! [fetchedResultsController performFetch:&error])
+    {
+        NSLog(@"Fehler: %@",error.localizedDescription);
+        return NO;
+    }
+
+    return YES;
+
+}
 
 
 

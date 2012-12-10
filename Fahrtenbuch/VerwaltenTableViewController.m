@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UIBarButtonItem *barButtonItemDone;
 @property (nonatomic, strong) UIBarButtonItem *barButtonItemCancel;
 @property (nonatomic, strong) UIBarButtonItem *barButtonItemSearch;
-@property (nonatomic, strong) UIBarButtonItem *barButtonItemDelete;
+@property (nonatomic, strong) UIBarButtonItem *barButtonItemEdit;
 @property (nonatomic, strong) UISearchBar *searchBar;
 
 @property (nonatomic, strong) NSPredicate *basePredicate;
@@ -32,13 +32,40 @@
 @synthesize barButtonItemCancel;
 @synthesize barButtonItemDone;
 @synthesize barButtonItemSearch;
-@synthesize barButtonItemDelete;
+@synthesize barButtonItemEdit;
 
 @synthesize basePredicate;
 @synthesize fetchPredicate;
 
 @synthesize searchBar;
-
+/*
+-(NSFetchedResultsController *) getFetchedResultsController
+{
+    if(self.fetchedResultsController != nil)
+    {
+        return self.fetchedResultsController;
+    }
+    
+    context = [CoreDataHelperClass managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Aufzeichnung" inManagedObjectContext:context];
+    request.entity = entity;
+    request.fetchBatchSize = 64;
+    request.predicate = fetchPredicate;
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"startTime" ascending:YES];
+    
+    NSArray *sortArray = [NSArray arrayWithObject:sort];
+    request.sortDescriptors = sortArray;
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedResultsController.delegate = self;
+    
+    return self.fetchedResultsController;
+}
+*/
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -63,23 +90,7 @@
 {
     [super viewDidLoad];
     
-    barButtonItemDelete = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(barButtonItemDeletePressed:)];
-    
-    barButtonItemSearch = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(barButtonItemSearchPressed:)];
-    
-    barButtonItemCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(barButtonItemCancelPressed:)];
-    
-    barButtonItemDone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(barButtonItemDonePressed:)];
-    
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:barButtonItemDelete, barButtonItemSearch, nil];
-    
-    self.searchBar = [[UISearchBar alloc] init];
-    self.searchBar.delegate = self;
-    //self.searchBar.barStyle =
-    self.searchBar.showsCancelButton = NO;
-    
-    //-------CoreData---------//
-    
+
     context = [CoreDataHelperClass managedObjectContext];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -94,17 +105,27 @@
     NSArray *sortArray = [NSArray arrayWithObject:sort];
     request.sortDescriptors = sortArray;
     
-    NSFetchedResultsController *ThefetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
-    self.fetchedResultsController = ThefetchedResultsController;
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedResultsController.delegate = self;
     
-    NSError *error;
-    [self.fetchedResultsController performFetch:&error];
+    [CoreDataHelperClass peformFetchOnFetchedResultsController:self.fetchedResultsController];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    barButtonItemEdit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(barButtonItemEditPressed:)];
+    
+    barButtonItemSearch = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(barButtonItemSearchPressed:)];
+    
+    barButtonItemCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(barButtonItemCancelPressed:)];
+    
+    barButtonItemDone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(barButtonItemDonePressed:)];
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:barButtonItemEdit, barButtonItemSearch, nil];
+    
+    self.searchBar = [[UISearchBar alloc] init];
+    self.searchBar.delegate = self;
+    //self.searchBar.barStyle =
+    self.searchBar.showsCancelButton = NO;
+    
+   
 }
 
 - (void)viewDidUnload
@@ -113,7 +134,7 @@
     barButtonItemCancel = nil;
     barButtonItemDone = nil;
     barButtonItemSearch = nil;
-    barButtonItemDelete = nil;
+    barButtonItemEdit = nil;
     searchBar = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -194,11 +215,11 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [[CoreDataHelperClass managedObjectContext] deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        
     }   
      
 }
-
 
 /*
 // Override to support rearranging the table view.
@@ -229,7 +250,7 @@
      */
 }
 
--(void) barButtonItemDeletePressed: (id) sender
+-(void) barButtonItemEditPressed: (id) sender
 {
     [self.navigationController setToolbarHidden:NO animated:YES];
     [self.tableView setEditing:YES animated:YES];
@@ -243,17 +264,17 @@
     [CoreDataHelperClass saveManagedObjectContext:context];
     [self.navigationController setToolbarHidden:YES animated:YES];
     [self.tableView setEditing:NO animated:YES];
-    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:barButtonItemDelete,barButtonItemSearch,nil] animated:YES];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:barButtonItemEdit,barButtonItemSearch,nil] animated:YES];
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.navigationItem.hidesBackButton = NO;
 }
 
 -(void) barButtonItemCancelPressed: (id) sender
 {
-    [[CoreDataHelperClass managedObjectContext]rollback];
+    [context rollback];
     [self.navigationController setToolbarHidden:YES animated:YES];
     [self.tableView setEditing:NO animated:YES];
-    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:barButtonItemDelete,barButtonItemSearch,nil] animated:YES];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:barButtonItemEdit,barButtonItemSearch,nil] animated:YES];
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     
     self.navigationItem.hidesBackButton = NO;
@@ -342,6 +363,67 @@
     {
         [self.searchBar resignFirstResponder];
     }
+}
+
+#pragma mark - NSFRC Delegate Methods
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
 }
 
 

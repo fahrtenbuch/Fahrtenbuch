@@ -10,8 +10,12 @@
 #import <CoreData/CoreData.h>
 
 @interface VerwaltenTableViewController : UITableViewController
+<NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSManagedObjectContext *context;
+
+
+
 
 @end

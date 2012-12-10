@@ -21,5 +21,6 @@
 + (BOOL) saveManagedObjectContext : (NSManagedObjectContext*) managedObjectContext;
 
 + (NSArray*) fetchEntitiesForClass: (Class) aClass withPredicates: (NSPredicate*) predicate inManagedObjectContext: (NSManagedObjectContext*) managedObjectContext;
- 
+
++ (BOOL) peformFetchOnFetchedResultsController: (NSFetchedResultsController *) fetchedResultscontroller;
 @end
