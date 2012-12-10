@@ -71,4 +71,6 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)openMail:(id)sender {
+}
 @end

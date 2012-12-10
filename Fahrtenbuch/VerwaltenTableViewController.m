@@ -90,7 +90,8 @@
 {
     [super viewDidLoad];
     
-
+    //-------FetchedResultsController----------//
+    
     context = [CoreDataHelperClass managedObjectContext];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -106,6 +107,7 @@
     request.sortDescriptors = sortArray;
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    
     self.fetchedResultsController.delegate = self;
     
     [CoreDataHelperClass peformFetchOnFetchedResultsController:self.fetchedResultsController];
@@ -342,7 +344,7 @@
     request.fetchBatchSize = 64;
     request.predicate = fetchPredicate;
     
-    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"location" ascending:YES];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"startTime" ascending:YES];
     
     NSArray *sortArray = [NSArray arrayWithObject:sort];
     request.sortDescriptors = sortArray;
