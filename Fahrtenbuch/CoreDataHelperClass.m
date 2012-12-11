@@ -43,7 +43,11 @@
     
     NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
     
-    if(![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error])
+    NSDictionary *option = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [NSNumber numberWithBool:YES],NSMigratePersistentStoresAutomaticallyOption,
+                            [NSNumber numberWithBool:YES],NSInferMappingModelAutomaticallyOption, nil];
+    
+    if(![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:option error:&error])
     {
         NSLog(@"Fehler %@", error.localizedDescription);
         return nil;
