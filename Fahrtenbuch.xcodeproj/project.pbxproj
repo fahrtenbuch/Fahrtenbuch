@@ -25,11 +25,11 @@
 		8421C3EF164FF82F0008E6A1 /* EinstellungenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421C3EE164FF82F0008E6A1 /* EinstellungenViewController.m */; };
 		8423238916767FA1007238CD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8423238816767FA1007238CD /* MessageUI.framework */; };
 		8423239D167690BA007238CD /* AufzeichnungDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8423238C16768B75007238CD /* AufzeichnungDetailsViewController.m */; };
-		842323A716769B18007238CD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 842323A616769B17007238CD /* MBProgressHUD.m */; };
 		84B8E13B1651802D00AC1FE7 /* CoreDataHelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8E13A1651802D00AC1FE7 /* CoreDataHelperClass.m */; };
 		84B8E144165187DA00AC1FE7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84B8E142165187DA00AC1FE7 /* Model.xcdatamodeld */; };
 		84B8E14616518B2A00AC1FE7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B8E14516518B2A00AC1FE7 /* CoreData.framework */; };
 		84B8E149165199BF00AC1FE7 /* Einstellungen.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8E148165199BF00AC1FE7 /* Einstellungen.m */; };
+		84BC932F1677958A00FF0711 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BC932E1677958A00FF0711 /* MBProgressHUD.m */; };
 		84E3BD7B16751752002BFE4D /* Aufzeichnung.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E3BD7A16751752002BFE4D /* Aufzeichnung.m */; };
 		84E3BD7D16751ABA002BFE4D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E3BD7C16751ABA002BFE4D /* Default-568h@2x.png */; };
 		A5B7A21216558ED3001BFABE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B7A21116558ED3001BFABE /* CoreLocation.framework */; };
@@ -75,14 +75,14 @@
 		8423238816767FA1007238CD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		8423238B16768B75007238CD /* AufzeichnungDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AufzeichnungDetailsViewController.h; sourceTree = "<group>"; };
 		8423238C16768B75007238CD /* AufzeichnungDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AufzeichnungDetailsViewController.m; sourceTree = "<group>"; };
-		842323A516769B17007238CD /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = "../../../MBProgressHUD-master/MBProgressHUD.h"; sourceTree = "<group>"; };
-		842323A616769B17007238CD /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = "../../../MBProgressHUD-master/MBProgressHUD.m"; sourceTree = "<group>"; };
 		84B8E1391651802D00AC1FE7 /* CoreDataHelperClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelperClass.h; sourceTree = "<group>"; };
 		84B8E13A1651802D00AC1FE7 /* CoreDataHelperClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelperClass.m; sourceTree = "<group>"; };
 		84B8E143165187DA00AC1FE7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		84B8E14516518B2A00AC1FE7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		84B8E147165199BF00AC1FE7 /* Einstellungen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Einstellungen.h; sourceTree = "<group>"; };
 		84B8E148165199BF00AC1FE7 /* Einstellungen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Einstellungen.m; sourceTree = "<group>"; };
+		84BC932D1677958A00FF0711 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		84BC932E1677958A00FF0711 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		84E3BD7916751752002BFE4D /* Aufzeichnung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aufzeichnung.h; sourceTree = "<group>"; };
 		84E3BD7A16751752002BFE4D /* Aufzeichnung.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aufzeichnung.m; sourceTree = "<group>"; };
 		84E3BD7C16751ABA002BFE4D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -155,8 +155,8 @@
 		840D51E2164FDA3400A307B4 /* Fahrtenbuch */ = {
 			isa = PBXGroup;
 			children = (
-				842323A516769B17007238CD /* MBProgressHUD.h */,
-				842323A616769B17007238CD /* MBProgressHUD.m */,
+				84BC932D1677958A00FF0711 /* MBProgressHUD.h */,
+				84BC932E1677958A00FF0711 /* MBProgressHUD.m */,
 				840D51EB164FDA3400A307B4 /* AppDelegate.h */,
 				840D51EC164FDA3400A307B4 /* AppDelegate.m */,
 				840D51EE164FDA3400A307B4 /* MainStoryboard.storyboard */,
@@ -340,7 +340,7 @@
 				84B8E149165199BF00AC1FE7 /* Einstellungen.m in Sources */,
 				84E3BD7B16751752002BFE4D /* Aufzeichnung.m in Sources */,
 				8423239D167690BA007238CD /* AufzeichnungDetailsViewController.m in Sources */,
-				842323A716769B18007238CD /* MBProgressHUD.m in Sources */,
+				84BC932F1677958A00FF0711 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
