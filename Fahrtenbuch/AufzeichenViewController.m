@@ -43,10 +43,7 @@
     [locationManagerCityName startUpdatingLocation];
 
 }
-- (void)myTask {
-	// Do something usefull in here instead of sleeping ...
-	sleep(2);
-}
+
 
 
 #pragma mark - locationManager record methods
@@ -96,7 +93,7 @@
         
         //calculate average route
         distance  += [newLocation distanceFromLocation:oldLocation];
-        speed += distance/([start timeIntervalSinceNow]*-1)*3.6;
+        speed = distance/([start timeIntervalSinceNow]*-1)*3.6;
         
         lbl_distance.text = [[NSString alloc] initWithFormat:@"%i", (int)distance];
         
@@ -169,15 +166,8 @@
     
     //enable all necessary view elements after stop button was pressed
     [pck_water setHidden:FALSE];
-    
-    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-	[self.navigationController.view addSubview:hud];
-	hud.labelText = @"Laden der Datenbank...";
-    hud.dimBackground = YES;
 	
-	[hud showAnimated:YES whileExecutingBlock:^{
 		Aufzeichnung *aufzeichnung_insert = [CoreDataHelperClass insertManagedObjectOfClass:[Aufzeichnung class] inManagedObjectContext:context];
-        
         
         aufzeichnung_insert.startTime = [dateFormatter stringFromDate:start];
         aufzeichnung_insert.stopTime = [dateFormatter stringFromDate:stop];
@@ -189,13 +179,7 @@
         aufzeichnung_insert.averageDistance = distanceNumber;
         
         [CoreDataHelperClass saveManagedObjectContext:context];
-	} completionBlock:^{
-        
-		[hud removeFromSuperview];
-		//[hud release];
-	}];
-
-    
+	    
     
 }
 

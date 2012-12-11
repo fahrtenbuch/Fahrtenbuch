@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "MBProgressHUD.h"
 
-@interface AufzeichenViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate, MBProgressHUDDelegate>
-{
-    MBProgressHUD *HUD;
-}
+
+@interface AufzeichenViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIPickerView *pck_water;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_water;
 @property (weak, nonatomic) IBOutlet UITextField *txt_water;
@@ -29,7 +27,7 @@
 - (IBAction)btn_start:(id)sender;
 - (IBAction)btn_stop:(id)sender;
 - (IBAction)textFieldDoneEditing:(id)sender;
--(void) myTask;
+
 
 @end
 
