@@ -9,6 +9,7 @@
 #import "AufzeichenViewController.h"
 #import "CoreDataHelperClass.h"
 #import "Aufzeichnung.h"
+#import <unistd.h>
 
 @implementation AufzeichenViewController
 
@@ -40,7 +41,11 @@
     locationManagerCityName.distanceFilter = kCLDistanceFilterNone;
     locationManagerCityName.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     [locationManagerCityName startUpdatingLocation];
-    
+
+}
+- (void)myTask {
+	// Do something usefull in here instead of sleeping ...
+	sleep(2);
 }
 
 
@@ -165,19 +170,33 @@
     //enable all necessary view elements after stop button was pressed
     [pck_water setHidden:FALSE];
     
-     Aufzeichnung *aufzeichnung_insert = [CoreDataHelperClass insertManagedObjectOfClass:[Aufzeichnung class] inManagedObjectContext:context];
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:hud];
+	hud.labelText = @"Laden der Datenbank...";
+    hud.dimBackground = YES;
+	
+	[hud showAnimated:YES whileExecutingBlock:^{
+		Aufzeichnung *aufzeichnung_insert = [CoreDataHelperClass insertManagedObjectOfClass:[Aufzeichnung class] inManagedObjectContext:context];
+        
+        
+        aufzeichnung_insert.startTime = [dateFormatter stringFromDate:start];
+        aufzeichnung_insert.stopTime = [dateFormatter stringFromDate:stop];
+        aufzeichnung_insert.location = location;
+        aufzeichnung_insert.water = selection;
+        NSNumber *speedNumber = [NSNumber numberWithDouble:speed];
+        NSNumber *distanceNumber = [NSNumber numberWithDouble:distance];
+        aufzeichnung_insert.averageSpeed = speedNumber;
+        aufzeichnung_insert.averageDistance = distanceNumber;
+        
+        [CoreDataHelperClass saveManagedObjectContext:context];
+	} completionBlock:^{
+        
+		[hud removeFromSuperview];
+		//[hud release];
+	}];
+
     
     
-    aufzeichnung_insert.startTime = [dateFormatter stringFromDate:start];
-    aufzeichnung_insert.stopTime = [dateFormatter stringFromDate:stop];
-    aufzeichnung_insert.location = location;
-    aufzeichnung_insert.water = selection;
-    NSNumber *speedNumber = [NSNumber numberWithDouble:speed];
-    NSNumber *distanceNumber = [NSNumber numberWithDouble:distance];
-    aufzeichnung_insert.averageSpeed = speedNumber;
-    aufzeichnung_insert.averageDistance = distanceNumber;
-    
-    [CoreDataHelperClass saveManagedObjectContext:context];
 }
 
 - (IBAction)textFieldDoneEditing:(id)sender {

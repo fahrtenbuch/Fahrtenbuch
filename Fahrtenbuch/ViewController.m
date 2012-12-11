@@ -61,7 +61,13 @@
 {
     if ([MFMailComposeViewController canSendMail])
     {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"Documents/"]];
+        NSError *error = nil;
+		NSData *pdfData = [NSData dataWithContentsOfURL:url options:NSUncachedRead error:&error];
+        
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        
+        [mailer addAttachmentData: pdfData mimeType:@"application/pdf" fileName:@"dateiname.pdf"];
         
         mailer.mailComposeDelegate = self;
         

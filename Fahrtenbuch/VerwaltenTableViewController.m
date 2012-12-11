@@ -9,6 +9,7 @@
 #import "VerwaltenTableViewController.h"
 #import "CoreDataHelperClass.h"
 #import "Aufzeichnung.h"
+#import "AufzeichnungDetailsViewController.h"
 
 @interface VerwaltenTableViewController() <UISearchBarDelegate>
 @property (nonatomic, strong) UIBarButtonItem *barButtonItemDone;
@@ -38,6 +39,8 @@
 @synthesize fetchPredicate;
 
 @synthesize searchBar;
+
+@synthesize aufzeichnung;
 /*
 -(NSFetchedResultsController *) getFetchedResultsController
 {
@@ -426,6 +429,15 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"showAufzeichnung"])
+    {
+        AufzeichnungDetailsViewController *controller = segue.destinationViewController;
+        controller.aufzeichnung = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    }
 }
 
 

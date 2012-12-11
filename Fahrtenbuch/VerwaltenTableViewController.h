@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+@class Aufzeichnung;
 
 @interface VerwaltenTableViewController : UITableViewController
 <NSFetchedResultsControllerDelegate>
@@ -15,7 +16,5 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 
-
-
-
+@property (nonatomic,strong) Aufzeichnung *aufzeichnung;
 @end
